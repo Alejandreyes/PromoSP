@@ -1,4 +1,4 @@
-Pasos de la instalación
+# Pasos de la instalación
 
 1.- instalar Node js
 entrar en la carpeta donde se encuetra el proyecto clonado
@@ -6,18 +6,18 @@ entrar en la carpeta donde se encuetra el proyecto clonado
 2.- instalar angular cli
 instalar de Forma Global. La que o utilice
 
-dentro de la terminal de node js o configurando la ruta de acceso de node js npm install -g @angular/cli@latest
-Forma local
+## dentro de la terminal de node js o configurando la ruta de acceso de node js npm install -g @angular/cli@latest
+## Forma local
 
 npm install @angular/cli --save-dev
-Instalar dependencias del proyecto
+## Instalar dependencias del proyecto
 
 npm instal
-Para ejecutar el proyecto solo tiene que colocar la siguiente comando en terminal ng serve
-para acceder a la pagina solo tiene que entrar en localhost:4200/
---------------------------------------------------------------------------
+## Para ejecutar el proyecto solo tiene que colocar la siguiente comando en terminal ng serve
+## para acceder a la pagina solo tiene que entrar en localhost:4200/
+## --------------------------------------------------------------------------
 
-Promos
+# Promos
 
 This project was generated with Angular CLI version 1.0.4.
 Development server
