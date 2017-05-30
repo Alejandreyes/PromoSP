@@ -1,5 +1,28 @@
-<h1>
-  Per
-</h1>
-<hr>
-<descuentos-tag></descuentos-tag>
+<table>
+  <tr>
+    <th>Descuentos Servicios</th>
+    <th>Editar</th>
+  </tr>
+  <tr *ngFor="let item of items | async">
+    <td>{{ item.nombre }} </td>
+    <td><button (click)="verPublicacion(item.$key, item.bienID)"  >EDITAR</button></td>
+  </tr>
+</table>
+<div id="Descuentos" style="display: none;">
+  <h2>Agendar Citas</h2>
+    <h2>servicio :{{ nombre }}</h2>
+    <h1>Costo : {{costo }}</h1>
+    <h3>Descuento del : {{descuento}}%</h3>
+    <h3>Nombre del local : {{ establecimiento }}</h3>
+    
+    Dirección del local  {{direccion}}
+    <br>
+    <br>
+    <h3> Reserva tu cita hoy mismo </h3>
+    <input type="text" #dia placeholder="Dia" />
+    <input type="text" #mes placeholder="Mes" />
+    <input type="text" #anio placeholder="Año" />
+    <input type="text" #hora placeholder="Hora" />
+    <input type="text" #minutos placeholder="Minuto" />
+    <button (click) = 'agendarCita(dia.value , mes.value,anio.value,hora.value,minutos.value)'>agendarCita </button>
+  </div>

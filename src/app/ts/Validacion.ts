@@ -3,11 +3,9 @@ export class ValidarCodigoPostal {
     valida(codigoPostal: CodigoPostal): boolean{
        
         if (codigoPostal.getRegExp() != null) {
-             console.log("Estoy aqui");
             if (codigoPostal.getCodigoPostal() != null) {
                 let codigo = codigoPostal.getCodigoPostal().toUpperCase().trim();
                 let reg = codigoPostal.getRegExp().toUpperCase().trim();
-                console.log("Paso aqui");
                 if (codigo.length != reg.length){
                     return false;
                 }
@@ -49,7 +47,4 @@ export class ValidarCodigoPostal {
       }
     }
     
-}
-export class ValidarDescuentos{
-
 }

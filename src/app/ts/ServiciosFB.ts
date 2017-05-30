@@ -22,10 +22,11 @@ export class ServiciosFB {
       return objeto;
   }
   getServicio(llave : string) : Servicios {
-      let servicio : Servicios = new Servicios(); 
+      
       let servicioTemp : FirebaseObjectObservable<any> = this.getServicioFB(llave);
       let costo: number;
       let nombre: string;
+      let servicio : Servicios = new Servicios(llave); 
       let establecimiento: Establecimiento;
       servicioTemp.subscribe(snapshot => {
         let estTemp : EstablecimientoFB = new EstablecimientoFB(this.DB); 

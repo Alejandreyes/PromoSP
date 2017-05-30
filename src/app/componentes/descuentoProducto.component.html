@@ -1,0 +1,19 @@
+<table>
+  <tr>
+    <th>Productos Disponibles</th>
+    <th>Editar</th>
+  </tr>
+  <tr *ngFor="let producto of productos | async">
+    <td> <h3>{{ producto.nombre }}</h3> </td>
+    <td><button (click)="aplicarDescuento( producto.$key, producto.bienID)"  >Visualizar</button></td> 
+  </tr>
+</table>
+<div id="DescuentosProductos" style="display: none;">
+  <h2>Descuentos Productos</h2>
+    <h2>producto :{{ nombre }}</h2>
+    <h2>Precio Original: ${{precio}}</h2>
+    <h1>Descuento : {{descuento }}%</h1>
+    <h4>Catidad de articulos disponibles : {{cantidad}} </h4>
+    <h3>Articulos en venta : {{ establecimiento }}</h3>
+    <button (click) = 'comprar()'>Comprar Articulo</button>
+</div>

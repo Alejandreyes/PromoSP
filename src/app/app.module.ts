@@ -7,12 +7,17 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AppComponent } from './app.component';
-import { DescuentosComponente } from './componentes/descuentos.component' 
+//import { AuthProviders, AuthMethods  } from 'angularfire2';
+
+import { LoginComponent } from './componentes/login.component';
+import { DescuentoProductosComponente } from './componentes/descuentoProducto.component'; 
 import { ServiciosComponente } from './componentes/servicios.component';
+
 @NgModule({
   declarations: [
     AppComponent, 
-    DescuentosComponente,
+    DescuentoProductosComponente,
+    LoginComponent,
     ServiciosComponente
   ],
     imports: [
