@@ -2,11 +2,13 @@ export class CodigoPostal {
     regExp: string;
     codigoPostal: string;
     pais: string;
-    
-    constructor(pais : string, regExp : string ) {
+    constructor(){
+        
+    }
+    /*constructor(pais : string, regExp : string ) {
         this.pais = pais;
         this.regExp = regExp;
-    }
+    }*/
     getCodigoPostal() : string {
         return this.codigoPostal;
     }
@@ -64,12 +66,18 @@ export interface Bienes{
     setNombre(nombre: string): void;
 }
 export class Establecimiento {
+    id : string;
     nombre: string;
     direccion: string;
     telefono: string;
     horarioAtencion: string;
     colonia: Colonia;
-    constructor(){}
+    constructor(id : string){
+        this.id=id;
+    }
+    getId(): string{
+        return this.id;
+    }
     getNombre(): string {
         return this.nombre;
      }
@@ -102,11 +110,15 @@ export class Establecimiento {
      }
 }
 export class Servicios implements Bienes{
+    id : string;
     costo: number;
     nombre: string;
     establecimiento: Establecimiento;
-    constructor() {
-        
+    constructor(id : string){
+        this.id=id;
+    }
+    getId(){
+        return this.id;
     }
     getCosto(): number { 
         return this.costo;
@@ -128,11 +140,14 @@ export class Servicios implements Bienes{
     }
 } 
 export class Cita{
-    constructor(){}
     private id: string;
     private estableciemiento: Establecimiento;
     private horario: Date;
     private servicio: Servicios; 
+    constructor(){
+       
+    }
+    
     getId() : string{
         return this.id;
     }
@@ -144,6 +159,9 @@ export class Cita{
     }
     getServicio(): Servicios {
         return this.servicio;
+    }
+    setId(id : string): void{
+        this.id = id;
     }
     setEstablecimiento(establecimiento: Establecimiento): void {
         this.estableciemiento = establecimiento;

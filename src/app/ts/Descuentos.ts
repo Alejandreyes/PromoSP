@@ -1,7 +1,10 @@
 import { Descuentos, Productos, Servicios } from './Modelo';
 
 export class DescuentosProductos implements Descuentos {
-    constructor(){}
+    constructor(){
+        this.descuento  = 0 ;
+        this.categoria = "";
+    }
     activos: Productos;
     descuento : number;
     categoria : string;
@@ -34,7 +37,10 @@ export class DescuentosServicios implements Descuentos{
     activos: Servicios;
     descuento : number;
     categoria : string;
-    constructor(){}
+    constructor(){
+        this.descuento  = 0 ;
+        this.categoria = "";
+    }
     getDescuentos(): number{
         return this.descuento;
     }

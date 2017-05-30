@@ -1,4 +1,5 @@
 import { Cita } from './Modelo';
+import { AngularFireDatabase , FirebaseListObservable} from 'angularfire2/database';
 export class AgendarCita{
 
     validaHorario(cita: Cita) : boolean{
@@ -13,8 +14,11 @@ export class AgendarCita{
         return true; 
     }
     diaHabil(horario : string, hora: Date): boolean{
+        
         let diasHabiles: number[] = this.diasHabiles(horario); 
+        
         let diaSemana: number = hora.getDate();
+        
         if (diasHabiles[diaSemana] == 1){
             return true;
         }
@@ -112,21 +116,38 @@ export class AgendarCita{
         let horaCierre :string = horariosDelDia.substring(horariosDelDia.indexOf(" a ") + 3).trim();
         return horaApertura + "," + horaCierre;
     }
-    guardarCita(cita :Cita) :void {
-         let manejaCitas =  new ManejaCitas();
-         manejaCitas.guardarCita(cita);
-    }
+    //guardarCita(cita :Cita) :void {
+      //   let manejaCitas =  new ManejaCitas();
+       //  manejaCitas.guardarCita(cita);
+    //}
 
 }
 export class ManejaCitas{
-    constructor(){
+    db : AngularFireDatabase;
+    constructor(db : AngularFireDatabase){
+        this.db = db;
 
     }
-    guardarCita(cita: Cita) : void {
-        
+    guardarCita(cita: Cita ) : void {
+        let valida = new AgendarCita();
+        if(valida.validaHorario(cita)&& this.disponible(cita)){
+            let citaFB : FirebaseListObservable<any> = this.db.list("Citas");
+            //citaFB.push(cita); // Sirve per agrega mas cosa de las  que necesito  
+            citaFB.push({servicioID :cita.getServicio().getId(),
+                 horaDeLaCita : cita.getHorario().getHours()+":"+cita.getHorario().getMinutes(),
+                 EstablecimientoID : cita.getEstablecimiento().getId(),
+                 nombreServicio : cita.getServicio().getNombre(),
+                 costo : cita.getServicio().getCosto()
+                });
+
+
+            console.log(" SE guardo la cita  ");
+        }else{
+            console.log(" No SE pueden guardar Citas ");
+        }
     }
     disponible(cita : Cita) :boolean {
 
-        return false; 
+        return true; 
     }
 }

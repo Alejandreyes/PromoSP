@@ -7,10 +7,13 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AppComponent } from './app.component';
-
+import { DescuentosComponente } from './componentes/descuentos.component' 
+import { ServiciosComponente } from './componentes/servicios.component';
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent, 
+    DescuentosComponente,
+    ServiciosComponente
   ],
     imports: [
     BrowserModule,
@@ -21,6 +24,7 @@ import { AppComponent } from './app.component';
     AngularFireAuthModule, // imports firebase/auth, only needed for auth features
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent] // Indica el componente pricipal del poryecto 
+  //bootstrap: [ServiciosComponent]
 })
 export class AppModule { }

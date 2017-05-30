@@ -40,6 +40,22 @@ export class DescuentoServiciosFB {
       descuento.setCategoria(categoria);
       return descuento;
   }
+  getDescuentoServiciosOb(observable : FirebaseObjectObservable<any>) : DescuentoFinalServicios {
+      let descuento : DescuentoFinalServicios = new DescuentoFinalServicios(); 
+      //let descuentoTemp : FirebaseObjectObservable<any> = this.getDescuento(llave);
+      let activos: Servicios;
+      let descuentoF : number;
+      let categoria : string;
+      observable.subscribe(snapshot => {
+        //activos  = snapshot.val().Servicio;
+        descuentoF = snapshot.val().descuento;
+        categoria = snapshot.val().categoria;
+      });
+      descuento.setBienes(activos);
+      descuento.setDescuentos(descuentoF);
+      descuento.setCategoria(categoria);
+      return descuento;
+  }
   save(){
 
   }

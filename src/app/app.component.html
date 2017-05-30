@@ -1,5 +1,4 @@
-<h1>
-  {{title}}
+<!--<h1>
   <h1>{{ item | async | json }}</h1>
   <input type="text" #newname placeholder="Name" />
   <input type="text" #newsize placeholder="Size" />
@@ -7,5 +6,35 @@
   <button (click)="save(newname.value)">Set Name</button>
   <button (click)="update(newsize.value)">Update Size</button>
   <button (click)="delete()">Delete</button>
-
 </h1>
+<hr>
+<descuentos-tag></descuentos-tag>
+-->
+
+<table>
+  <tr>
+    <th>Servicios Disponibles</th>
+    <th>Editar</th>
+  </tr>
+  <tr *ngFor="let item of items | async">
+    <td>{{ item.nombreServicio }} </td>
+    <td><button (click)="s(item.$key)"  >EDITAR</button></td>
+  </tr>
+</table>
+<div id="Descuentos" style="display: none;">
+  <h2>Agendar Citas</h2>
+    {{ nombre }}
+  
+    <ul *ngFor="let objeto of objetoLista | async">
+    <li>{{ objeto.$value }} </li>
+    
+  </ul>
+    <input type="text" #dia placeholder="Dia" />
+    <input type="text" #mes placeholder="Mes" />
+    <input type="text" #anio placeholder="Año" />
+    <input type="text" #hora placeholder="Hora" />
+    <input type="text" #minutos placeholder="Minuto" />
+    <button (click) = 'agendarCita(dia.value , mes.value,anio.value,hora.value,minutos.value)'>agendarCita </button>
+  </div>
+<descuentos-tag></descuentos-tag>
+
