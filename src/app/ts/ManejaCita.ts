@@ -1,5 +1,5 @@
 import { Cita } from './Modelo';
-import { AngularFireDatabase , FirebaseListObservable} from 'angularfire2/database';
+import { AngularFireDatabase , FirebaseObjectObservable,  FirebaseListObservable} from 'angularfire2/database';
 export class AgendarCita{
 
     validaHorario(cita: Cita) : boolean{
@@ -123,10 +123,11 @@ export class AgendarCita{
 
 }
 export class ManejaCitas{
+    cita : FirebaseObjectObservable<any>;
     db : AngularFireDatabase;
     constructor(db : AngularFireDatabase){
         this.db = db;
-
+        
     }
     guardarCita(cita: Cita ) : void {
         let valida = new AgendarCita();
@@ -137,17 +138,16 @@ export class ManejaCitas{
                  horaDeLaCita : cita.getHorario().getHours()+":"+cita.getHorario().getMinutes(),
                  EstablecimientoID : cita.getEstablecimiento().getId(),
                  nombreServicio : cita.getServicio().getNombre(),
-                 costo : cita.getServicio().getCosto()
+                 costo : cita.getServicio().getCosto(),
+                 dia : cita.getHorario().getDate() +"/" +cita.getHorario().getMonth()+"/"+cita.getHorario().getFullYear() 
                 });
-
-
             console.log(" SE guardo la cita  ");
         }else{
             console.log(" No SE pueden guardar Citas ");
         }
     }
     disponible(cita : Cita) :boolean {
-
+        
         return true; 
     }
 }

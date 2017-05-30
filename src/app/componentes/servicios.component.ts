@@ -83,7 +83,7 @@ export class ServiciosComponente {
     cita.setServicio(servicio);
     setTimeout(function(){ 
         manejaCitas.guardarCita(cita);  
-        this.descuentoBD.update();
+        //this.descuentoBD.update();
       }, 100);
   } 
     
