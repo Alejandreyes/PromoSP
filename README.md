@@ -1,3 +1,5 @@
+# Solo ejecutar el comando ng serve con node js instalado
+
 # Pasos de la instalación
 
 1.- instalar Node js
